@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Contact List</h1>
+				<form id= 'newFriend'>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="input-group">
+								<span class="input-group-addon">Name</span>
+								<input id = "nameInput"type="text" class="form-control" required>
+							</div>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-xs-6">
+							<div class="input-group">
+								<span class="input-group-addon">Phone#</span>
+								<input id="phoneInput"type="number" class="form-control">
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="input-group">
+								<span class="input-group-addon">email</span>
+								<input id="emailInput"type="text" class="form-control" required>
+							</div>
+						</div>
+					</div>
+					<div class="row buttonRow">
+						<div class="col-xs-6">
+							<button id="button" class="btn btn-success">Add Contact</button>
+						</div>
+					</div> 
+				</form>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="input-group">
+						<span class="input-group-btn">
+							<button class="btn btn-primary" type="button">Search</button>
+						</span>
+						<input type="text" class="form-control" placeholder="Search for...">
+					</div><!-- /input-group -->
+				</div>
+			</div>	
+
+			<div class="row">
+				<div class="col-xs-12" id="tableHolder">
+					<table class="table">
+						<thead>
+							<tr>
+								<th class="name">Name</th>
+								<th class="phoneNum">Phone #</th>
+								<th class="email">Email</th>
+								<th>Edit / Remove Contact</th>
+							</tr>
+						</thead>
+						<tbody id="friendList">
+							<tr id="template">
+
+								<td class="name col-xs-3"></td>
+								<td class="phone col-xs-3"></td>
+								<td class="email col-xs-3"></td>
+								<td class="delete col-xs-3">
+									<button class="btn btn-default" type="button">Edit</button>
+									<button id="deleteButton" class="btn btn-danger" type="button">Remove</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>	
+		</div>
+	</div>	
+
+		
+
+	<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.0.0/lodash.min.js"></script>
+	<script src="main.js"></script>
+</body>
+</html>
