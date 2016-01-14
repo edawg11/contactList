@@ -10,6 +10,7 @@ function init() {
 	$("#newFriend").submit(addFriend);
 	$('#friendList').on('click', '#deleteButton', removeFriend);
 	$('.table').on('dblclick', 'th', sortArray);
+	// $('#friendList').on('click', '#editButton', editFriend);
 }
 
 function sortArray(e) {
@@ -39,6 +40,7 @@ function addFriend(e){
 
 	saveToStorage();
 	updateTable();
+	$("#newFriend")[0].reset()
 }
 
 function removeFriend(e) {
@@ -55,6 +57,20 @@ function removeFriend(e) {
 	saveToStorage();
 }
 
+// function editFriend(e) {
+// 	console.log('clicked');
+// 	// var $target = $(e.target)
+// 	// var $targetRow = $target.closest('tr');
+// 	// console.log($targetRow).firstChild();
+// 	// var index = $targetRow.index;
+
+// 	// // console.log('index:', index);
+// 	// // friends.splice(index, 1);
+	
+// 	// // updateTable();
+// 	// // saveToStorage();
+// }
+
 function saveToStorage() {
   localStorage.friends = JSON.stringify(friends);
 }
@@ -69,7 +85,7 @@ function loadFromStorage() {
 function updateTable() {
   var $friendList = $('#friendList');
 
-  $friendList.children().not('#template').remove();
+  $friendList.children().not('#template').empty();
   
   var $friends = friends.map(function(friend) {
 			var $tr = $('#template').clone();
