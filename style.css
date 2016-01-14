@@ -5,3 +5,8 @@
 #template {
 	visibility: hidden;
 }
+
+th:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}

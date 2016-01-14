@@ -3,14 +3,12 @@ $(document).ready(init);
 var friends = [];
 
 function init() {
-	// loadFromStorage();
-	// updateTable();
 	loadFromStorage();
 	updateTable();
 	$("#newFriend").submit(addFriend);
-	$('#friendList').on('click', '#deleteButton', removeFriend);
+	$('#friendList').on('click', '.deleteButton', removeFriend);
 	$('.table').on('dblclick', 'th', sortArray);
-	// $('#friendList').on('click', '#editButton', editFriend);
+	$('#friendList').on('click', '.editButton', editFriend);
 }
 
 function sortArray(e) {
@@ -57,19 +55,11 @@ function removeFriend(e) {
 	saveToStorage();
 }
 
-// function editFriend(e) {
-// 	console.log('clicked');
-// 	// var $target = $(e.target)
-// 	// var $targetRow = $target.closest('tr');
-// 	// console.log($targetRow).firstChild();
-// 	// var index = $targetRow.index;
+function editFriend(e) {
+	console.log('edit!');
+	$('#myModal').modal('show');
 
-// 	// // console.log('index:', index);
-// 	// // friends.splice(index, 1);
-	
-// 	// // updateTable();
-// 	// // saveToStorage();
-// }
+}
 
 function saveToStorage() {
   localStorage.friends = JSON.stringify(friends);
