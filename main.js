@@ -8,7 +8,8 @@ function init() {
 	$("#newFriend").submit(addFriend);
 	$('#friendList').on('click', '.deleteButton', removeFriend);
 	$('.table').on('dblclick', 'th', sortArray);
-	$('#friendList').on('click', '.editButton', editFriend);
+	$('#friendList').on('click', '.editButton', editing.openModal);
+	$('#save').click(editing.saveEdit);
 }
 
 function sortArray(e) {
@@ -55,11 +56,38 @@ function removeFriend(e) {
 	saveToStorage();
 }
 
-function editFriend(e) {
-	console.log('edit!');
-	$('#myModal').modal('show');
+editing = {
+	openModal: function(e) {
+	editing.index = $(e.target).closest('tr').index()-1;
+	var friendToEdit = friends[editing.index];
 
+	console.log(friendToEdit);
+	$('#nameEdit').val(friendToEdit.name);
+	$('#phoneEdit').val(friendToEdit.phoneNum);
+	$('#emailEdit').val(friendToEdit.email);		
+	$('#myModal').modal('show');
+	
+	},
+
+	saveEdit: function(){
+	var name = $('#nameEdit').val();
+	var email = $('#emailEdit').val();
+	var phoneNum = $('#emailEdit').val();
+
+	friends[editing.index].name = name;
+	friends[editing.index].phoneNum = phoneNum;
+	friends[editing.index].email = email;
+
+	updateTable();
+	saveToStorage();
+
+	$('#myModal').modal('hide');
+
+	},
 }
+
+
+
 
 function saveToStorage() {
   localStorage.friends = JSON.stringify(friends);

@@ -3,7 +3,7 @@
 }
 
 #template {
-	visibility: hidden;
+	display: none;
 }
 
 th:hover {
